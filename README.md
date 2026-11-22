@@ -6,7 +6,7 @@ Turn an assignment announcement into editable calendar events in your browser. D
 
 **Beta 1 · v1.0.0-beta.1** — Please review extracted dates before importing. Feedback on parsing and calendar imports is welcome through the repository’s issue templates.
 
-**Live demo** — [URL pending GitHub Pages deployment]  
+**Live demo** — [Open DeadlineDrop Beta](https://howardjiangj.github.io/DeadlineDrop/)  
 **GitHub repository** — [HowardJiangj/DeadlineDrop](https://github.com/HowardJiangj/DeadlineDrop)
 
 ## Screenshot
@@ -85,7 +85,7 @@ dev-server.js        Local static preview
 1. Create a GitHub repository you can administer. Push the project files, including the .github directory, to its main branch.
 2. In **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source.
 3. Open **Actions → Test and deploy → Run workflow** and select main. Subsequent pushes to main run it automatically. Tests must pass before the workflow uploads the site directory and deploys it.
-4. Open the deployment URL shown in the github-pages environment. Replace the two URL placeholders at the top of this README. The workflow inserts the actual repository URL into the deployed interface.
+4. Open the deployment URL shown in the github-pages environment. Update the project links at the top of this README if publishing a fork. The workflow inserts the actual repository URL into the deployed interface.
 
 Pull requests run the tests. Deployment uses the repository's built-in Actions token. See [GitHub's custom workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
