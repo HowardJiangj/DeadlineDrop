@@ -1,0 +1,14 @@
+{
+  "name": "deadlinedrop",
+  "version": "1.0.0-beta.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "node dev-server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
