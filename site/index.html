@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="repository-url" content="" />
+    <title>DeadlineDrop Beta · Text to calendar</title>
+    <meta
+      name="description"
+      content="Extract deadlines from announcements, review dates, and download a calendar file. All processing stays in your browser."
+    />
+    <meta property="og:title" content="DeadlineDrop Beta · Text to calendar" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Paste it. Plan it. Never miss a deadline. Turn school announcements into editable calendar events."
+    />
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#source">Skip to announcement</a>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="#workspace"
+          ><img src="favicon.svg" alt="" />Deadline<span>Drop</span><small class="release-label">Beta</small></a
+        >
+        <nav>
+          <a class="active" href="#workspace">Workspace</a
+          ><a href="#guide">How it works</a>
+        </nav>
+        <div class="right">
+          <button class="icon" id="theme" aria-label="Toggle dark mode">
+            <i data-i="moon"></i></button
+          ><button class="ghost repo" type="button">
+            <i data-i="code"></i> GitHub
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="wrap" id="workspace">
+      <section class="hero">
+        <div>
+          <h1>Paste it. Plan it.<br /><em>Never miss a deadline.</em></h1>
+          <p>
+            Turn assignment briefs and school announcements into calendar
+            events.
+          </p>
+        </div>
+        <div class="illustration" aria-hidden="true">
+          <div class="backpage"></div>
+          <div class="paper">
+            <div class="binding"></div>
+            <div class="paperhead"></div>
+            <div class="grid">
+              <b></b><b></b><b>✓</b><b></b><b></b><b></b><b></b><b></b>
+            </div>
+          </div>
+          <span class="spark">✦</span><span class="spark small">✧</span>
+        </div>
+      </section>
+      <section class="panel input-panel">
+        <div class="section-head">
+          <div class="title">
+            <span class="tile"><i data-i="text"></i></span>
+            <h2>Announcement</h2>
+          </div>
+          <button class="example" id="example">
+            <i data-i="sample"></i>Load example
+          </button>
+        </div>
+        <label for="source">Paste your assignment or announcement below.</label>
+        <textarea
+          id="source"
+          placeholder="e.g. Math homework is due December 1, 2026 at 11:59 PM. Biology test on November 27, 2026."
+        ></textarea>
+        <div class="actions">
+          <button class="primary" id="extract">
+            <i data-i="wand"></i>Extract Deadlines</button
+          ><button class="quiet" id="clear">Clear</button
+          ><span id="count">0 characters</span>
+        </div>
+      </section>
+      <div class="privacy">
+        <i data-i="shield"></i>Your text stays in your browser. Nothing is
+        uploaded.
+      </div>
+      <section class="panel results">
+        <div class="section-head">
+          <div class="title">
+            <span class="tile mint"><i data-i="calendar"></i></span>
+            <h2>Extracted deadlines</h2>
+            <span id="total">0</span>
+          </div>
+          <button class="ghost" id="add"><i data-i="plus"></i>Add event</button>
+        </div>
+        <p id="status" role="status"></p>
+        <div id="events"></div>
+        <div id="empty">
+          <i data-i="calendar"></i><strong>No deadlines yet</strong
+          ><span>Extract an announcement or add an event manually.</span>
+        </div>
+        <div class="export-row">
+          <span id="selected">0 events selected</span
+          ><button class="primary" id="export" disabled>
+            <i data-i="download"></i>Export calendar
+          </button>
+        </div>
+      </section>
+      <details id="guide">
+        <summary><i data-i="book"></i>How it works</summary>
+        <p>
+          Paste text, extract deadlines, then review each title, date and time.
+          Select the events you want and import the downloaded .ics file into
+          your calendar.
+        </p>
+        <p>
+          Use a month name or YYYY-MM-DD for clarity. A missing year uses the
+          next occurrence, including today. Ambiguous numeric dates need manual
+          review. Times use the local clock in the importing calendar. Keep
+          dates all-day when no time is specified.
+        </p>
+      </details>
+    </main>
+    <footer>
+      <div class="wrap">
+        <span>DeadlineDrop</span
+        ><button class="quiet repo">GitHub repository</button>
+      </div>
+    </footer>
+    <dialog id="repository">
+      <h2>GitHub repository</h2>
+      <p>
+        The repository link will be available when the project is published.
+      </p>
+      <form method="dialog"><button class="ghost">Close</button></form>
+    </dialog>
+    <template id="card"
+      ><article class="event">
+        <div class="event-head">
+          <label
+            ><input type="checkbox" data-field="selected" /> Include in
+            export</label
+          ><button class="icon delete" aria-label="Delete event">
+            <i data-i="trash"></i>
+          </button>
+        </div>
+        <label>Event title<input type="text" data-field="title" /></label>
+        <div class="fields">
+          <label>Date<input type="date" data-field="date" /></label
+          ><label>Time<input type="time" data-field="time" /></label
+          ><label class="check"
+            ><input type="checkbox" data-field="allDay" /> All day</label
+          >
+        </div>
+        <p class="note"></p>
+        <p class="error"></p></article
+    ></template>
+  </body>
+</html>
